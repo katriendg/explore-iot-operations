@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Copilot temporary user work and planning files
+.copilot-tracking/
