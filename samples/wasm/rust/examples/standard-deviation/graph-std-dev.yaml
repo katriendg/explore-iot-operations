@@ -1,0 +1,56 @@
+moduleRequirements:
+  apiVersion: "0.2.0"
+  hostlibVersion: "0.2.0"
+
+moduleConfigurations:
+  - name: module-window/delay
+    parameters:
+      window_ms:
+        name: "300000"  # 5 minutes in milliseconds
+        description: "Time window for delayed processing"
+  
+  - name: module-std-dev/accumulate
+    parameters:
+      window_duration_ms:
+        name: "300000"  # 5 minutes to match the delay window
+        description: "Statistical calculation window duration"
+
+operations:
+  # Data source - typically sensors providing temperature and pressure data
+  - operationType: "source"
+    name: "sensor-source"
+
+  # Window/delay operator for time-based processing
+  # This ensures data is processed in 5-minute batches
+  - operationType: "delay"
+    name: "module-window/delay"
+    module: "window:1.0.0"
+
+  # Standard deviation calculator
+  # Accumulates sensor data and calculates statistics over the time window
+  - operationType: "accumulate"
+    name: "module-std-dev/accumulate"
+    module: "standard-deviation:1.0.0"
+
+  # Output sink for statistical results
+  - operationType: "sink"
+    name: "stats-sink"
+
+connections:
+  # Sensor data flows into the window/delay operator
+  - from:
+      name: "sensor-source"
+    to:
+      name: "module-window/delay"
+
+  # Windowed data flows into the standard deviation calculator
+  - from:
+      name: "module-window/delay"
+    to:
+      name: "module-std-dev/accumulate"
+
+  # Statistical results flow to the output sink
+  - from:
+      name: "module-std-dev/accumulate"
+    to:
+      name: "stats-sink"

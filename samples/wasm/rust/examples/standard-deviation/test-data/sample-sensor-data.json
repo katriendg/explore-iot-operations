@@ -1,0 +1,82 @@
+[
+  {
+    "temperature": 22.5,
+    "pressure": 101325.0,
+    "device_id": "sensor-001",
+    "timestamp": 1672531200000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  },
+  {
+    "temperature": 23.1,
+    "pressure": 101310.5,
+    "device_id": "sensor-001",
+    "timestamp": 1672531260000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  },
+  {
+    "temperature": 22.8,
+    "pressure": 101340.2,
+    "device_id": "sensor-001",
+    "timestamp": 1672531320000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  },
+  {
+    "temperature": 24.2,
+    "pressure": 101290.8,
+    "device_id": "sensor-001",
+    "timestamp": 1672531380000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  },
+  {
+    "temperature": 23.7,
+    "pressure": 101355.1,
+    "device_id": "sensor-001",
+    "timestamp": 1672531440000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  },
+  {
+    "temperature": 22.9,
+    "pressure": 101298.7,
+    "device_id": "sensor-002",
+    "timestamp": 1672531200000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  },
+  {
+    "temperature": 23.5,
+    "pressure": 101320.3,
+    "device_id": "sensor-002",
+    "timestamp": 1672531260000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  },
+  {
+    "temperature": 24.1,
+    "pressure": 101285.9,
+    "device_id": "sensor-002",
+    "timestamp": 1672531320000,
+    "unit": {
+      "temperature": "C",
+      "pressure": "Pa"
+    }
+  }
+]

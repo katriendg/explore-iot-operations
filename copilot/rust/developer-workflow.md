@@ -3,6 +3,7 @@
 ## Build and Dependency Management
 
 **Core Principles:**
+
 - Use Cargo for all build and dependency management
 - Follow semantic versioning for dependencies
 - Use feature flags to control compilation

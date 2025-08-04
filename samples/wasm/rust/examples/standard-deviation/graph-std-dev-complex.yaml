@@ -1,0 +1,112 @@
+moduleRequirements:
+  apiVersion: "0.2.0"
+  hostlibVersion: "0.2.0"
+
+moduleConfigurations:
+  # Window configuration for 5-minute batches
+  - name: module-window/delay
+    parameters:
+      window_ms:
+        name: "300000"  # 5 minutes
+        description: "Time window for batch processing"
+  
+  # Temperature filtering configuration
+  - name: module-temperature/filter
+    parameters:
+      temperature_lower_bound:
+        name: "-50.0"
+        description: "Minimum valid temperature in Celsius"
+      temperature_upper_bound:
+        name: "100.0"
+        description: "Maximum valid temperature in Celsius"
+  
+  # Standard deviation calculation configuration
+  - name: module-std-dev/accumulate
+    parameters:
+      window_duration_ms:
+        name: "300000"  # 5 minutes
+        description: "Statistical calculation window"
+
+  # Data enrichment configuration
+  - name: module-enrichment/map
+    parameters:
+      facility_id:
+        name: "plant-001"
+        description: "Facility identifier for enrichment"
+
+operations:
+  # Data sources
+  - operationType: "source"
+    name: "sensor-source"
+
+  # Time-based windowing
+  - operationType: "delay"
+    name: "module-window/delay"
+    module: "window:1.0.0"
+
+  # Data validation - filter out invalid temperature readings
+  - operationType: "filter"
+    name: "module-temperature/filter"
+    module: "temperature:1.0.0"
+
+  # Branch to separate processing paths
+  - operationType: "branch"
+    name: "data-branch"
+    
+  # Standard deviation calculation for valid data
+  - operationType: "accumulate"
+    name: "module-std-dev/accumulate"
+    module: "standard-deviation:1.0.0"
+
+  # Data enrichment with metadata
+  - operationType: "map"
+    name: "module-enrichment/map"
+    module: "enrichment:1.0.0"
+
+  # Output sinks
+  - operationType: "sink"
+    name: "statistics-sink"
+    
+  - operationType: "sink"
+    name: "invalid-data-sink"
+
+connections:
+  # Main data flow
+  - from:
+      name: "sensor-source"
+    to:
+      name: "module-window/delay"
+
+  - from:
+      name: "module-window/delay"
+    to:
+      name: "module-temperature/filter"
+
+  - from:
+      name: "module-temperature/filter"
+    to:
+      name: "data-branch"
+
+  # Valid data path - calculate statistics
+  - from:
+      name: "data-branch"
+      arm: "True"
+    to:
+      name: "module-std-dev/accumulate"
+
+  - from:
+      name: "module-std-dev/accumulate"
+    to:
+      name: "module-enrichment/map"
+
+  - from:
+      name: "module-enrichment/map"
+    to:
+      name: "statistics-sink"
+
+  # Invalid data path - log for debugging
+  - from:
+      name: "data-branch"
+      arm: "False"
+    to:
+      name: "invalid-data-sink"

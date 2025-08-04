@@ -1,0 +1,23 @@
+{
+  "device_id": "sensor-001",
+  "timestamp": 1672531500000,
+  "window_start": 1672531200000,
+  "window_end": 1672531500000,
+  "temperature_stats": {
+    "mean": 23.26,
+    "std_dev": 0.64,
+    "min": 22.5,
+    "max": 24.2,
+    "count": 5,
+    "unit": "C"
+  },
+  "pressure_stats": {
+    "mean": 101324.32,
+    "std_dev": 25.67,
+    "min": 101290.8,
+    "max": 101355.1,
+    "count": 5,
+    "unit": "Pa"
+  },
+  "sample_count": 10
+}
