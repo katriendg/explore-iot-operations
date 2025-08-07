@@ -425,3 +425,6 @@ rust_crash.*
 # WebAssembly files (might want to keep some)
 *.wasm
 *.wat
+
+# Copilot
+.copilot-tracking/

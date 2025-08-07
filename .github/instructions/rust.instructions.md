@@ -10,74 +10,61 @@ You are an expert Rust developer with comprehensive knowledge of Rust fundamenta
 
 When implementing any Rust-related functionality follow these requirements:
 
-- You must always first enhance your context by reading the files in the `instructions-modules` section, depending on the topic.
 - You must follow all Rust ownership, borrowing, and memory safety principles
 - You must implement error handling using `Result<T, E>` patterns and avoid panic-inducing code
-- You must adhere to the performance and safety guidelines provided
+- You must adhere to performance and safety guidelines
 - You must use appropriate async/await patterns for concurrent programming
 - You must implement complete, working functionality that follows established project patterns
 
-<!-- <instructions-modules> -->
-## Instruction Modules
+## Official Rust Documentation Reference
 
-The complete Rust development guidance is organized into the following specialized modules:
+For core Rust concepts, always reference the official Rust documentation which is kept up-to-date:
 
-### 📚 [Rust Fundamentals](../../copilot/rust/fundamentals.md)
-**Core Rust concepts including ownership, error handling, and type system**
-- Ownership System and Memory Safety
-- Error Handling and Result Patterns  
-- Type System and Traits
-- RAII and Drop Semantics
-- Borrowing Rules and Lifetime Management
+### 📚 **Rust Fundamentals**
+Reference the official Rust Book for core concepts:
+- **Ownership & Borrowing**: [Chapter 4 - Understanding Ownership](https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html)
+- **Error Handling**: [Chapter 9 - Error Handling](https://doc.rust-lang.org/stable/book/ch09-00-error-handling.html)
+- **Generics & Traits**: [Chapter 10 - Generic Types, Traits, and Lifetimes](https://doc.rust-lang.org/stable/book/ch10-00-generics.html)
+- **Testing**: [Chapter 11 - Writing Automated Tests](https://doc.rust-lang.org/stable/book/ch11-00-testing.html)
 
-### 🚀 [Advanced Patterns](../../copilot/rust/advanced-patterns.md)
-**Advanced Rust techniques including async/await, unsafe code, and performance optimization**
-- Async/Await and Concurrency Patterns
-- Unsafe Rust and FFI Guidelines
-- Performance Optimization Patterns
-- Send and Sync Traits for Concurrency
-- Memory Management and Resource Pools
+### 🚀 **Advanced Patterns**
+- **Concurrency**: [Chapter 16 - Fearless Concurrency](https://doc.rust-lang.org/stable/book/ch16-00-concurrency.html)
+- **Async Programming**: [Async Book](https://rust-lang.github.io/async-book/)
+- **Unsafe Rust**: [Chapter 20 - Unsafe Rust](https://doc.rust-lang.org/stable/book/ch20-01-unsafe-rust.html)
+- **Advanced Features**: [Chapter 20 - Advanced Features](https://doc.rust-lang.org/stable/book/ch20-00-advanced-features.html)
 
-### 🌐 [WASM and IoT Integration](../../copilot/rust/wasm-iot.md)
-**WASM development and Azure IoT Operations integration patterns**
-- WASM Development Guidelines
-- Azure IoT Operations SDK Integration
-- Data Flow Operator Patterns
-- IoT-Specific Architecture Patterns
-- Container and Deployment Strategies
+### 🛠️ **Developer Tools & Workflow**
+- **Cargo Guide**: [The Cargo Book](https://doc.rust-lang.org/cargo/)
+- **Standard Library**: [std Documentation](https://doc.rust-lang.org/std/)
+- **Rust Reference**: [The Rust Reference](https://doc.rust-lang.org/reference/)
+- **Performance Guide**: [The Rust Performance Book](https://nnethercote.github.io/perf-book/)
 
-### 🛠️ [Developer Workflow](../../copilot/rust/developer-workflow.md)
-**Build and dependency management, testing, debugging, and development workflow**
-- Build and Dependency Management
-- Testing and Debugging Guidelines
-- Development Workflow and Tooling
-- CI/CD Pipeline Configuration
-- IDE Setup and Configuration
+## Project-Specific Patterns
 
-### 💡 [Code Examples](../../copilot/rust/code-examples.md)
-**Comprehensive examples and architectural guidelines**
-- Complete HTTP Client Examples
-- Configuration Management Patterns
-- Generic Data Processing Pipelines
-- Error Handling with Custom Types
-- Architectural Guidelines and Best Practices
+### 🌐 **WASM Development for Azure IoT Operations**
+For WASM-specific development and IoT integration patterns, reference:
+- **[WASM and IoT Integration Guide](../../copilot/rust/wasm-iot.md)** - Comprehensive guide for WASM development, Azure IoT Operations SDK integration, and data flow operator patterns
+- Project WASM examples: `samples/wasm/`
+- Rust WASM builder: `docker/wasm-rust-build/`
+- Data flow operator patterns in existing samples
 
-### 🔧 [Troubleshooting](../../copilot/rust/troubleshooting.md)
-**Common issues and debugging strategies**
-- Common Compilation Errors and Solutions
-- Performance Debugging Strategies
-- Runtime Debugging Techniques
-- Error Message Interpretation Guide
-- Tools and Commands for Debugging
+### 💡 **Project Architecture**
+Follow established patterns from:
+- `samples/auth-server-template/` - Async web server patterns
+- `lib/` - Shared library patterns
+- Use the project's error handling conventions and logging patterns
 
-## Quick Reference
+## Quick Reference Guide
 
-For specific topics, use the appropriate module:
-- **Basic concepts and ownership issues** → [Fundamentals](../../copilot/rust/fundamentals.md)
-- **Async programming and performance** → [Advanced Patterns](../../copilot/rust/advanced-patterns.md)
-- **WASM modules and IoT integration** → [WASM and IoT](../../copilot/rust/wasm-iot.md)
-- **Build issues and testing** → [Developer Workflow](../../copilot/rust/developer-workflow.md)
-- **Architecture and design patterns** → [Code Examples](../../copilot/rust/code-examples.md)
-- **Compilation errors and debugging** → [Troubleshooting](../../copilot/rust/troubleshooting.md)
+When working on Rust code:
 
-<!-- </instructions-modules> -->
+1. **Start with ownership questions** → [Ownership Chapter](https://doc.rust-lang.org/stable/book/ch04-00-understanding-ownership.html)
+2. **Error handling decisions** → [Error Handling Chapter](https://doc.rust-lang.org/stable/book/ch09-00-error-handling.html)
+3. **Need generics or traits** → [Generics Chapter](https://doc.rust-lang.org/stable/book/ch10-00-generics.html)
+4. **Testing requirements** → [Testing Chapter](https://doc.rust-lang.org/stable/book/ch11-00-testing.html)
+5. **Concurrency needs** → [Concurrency Chapter](https://doc.rust-lang.org/stable/book/ch16-00-concurrency.html)
+6. **Async programming** → [Async Book](https://rust-lang.github.io/async-book/)
+7. **WASM for IoT** → [WASM and IoT Integration Guide](../../copilot/rust/wasm-iot.md)
+8. **Performance issues** → [Performance Book](https://nnethercote.github.io/perf-book/)
+
+This approach ensures you always have access to the most current Rust documentation and best practices.

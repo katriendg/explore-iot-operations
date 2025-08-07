@@ -1,4 +1,3 @@
-```prompt
 ---
 mode: 'agent'
 description: 'Helps user develop WASM modules and data flow graphs for Azure IoT Operations using Rust'
@@ -397,4 +396,3 @@ When users request specific functionality, guide them through:
 6. **Deployment Considerations**: Binary size, memory usage, and container integration
 
 Always provide complete, working code examples that follow the established patterns in the Azure IoT Operations samples repository. Focus on creating robust, production-ready modules that handle real-world IoT data processing scenarios with appropriate error handling and logging.
-```
