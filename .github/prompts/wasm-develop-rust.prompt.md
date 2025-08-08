@@ -81,6 +81,7 @@ crate-type = ["cdylib"]
 ```
 
 **Environment Setup Requirements:**
+
 ```bash
 # Registry configuration for tinykube-wasm-sdk access
 export CARGO_REGISTRIES_AZURE_VSCODE_TINYKUBE_INDEX="sparse+https://pkgs.dev.azure.com/azure-iot-sdks/iot-operations/_packaging/preview/Cargo/index/"
