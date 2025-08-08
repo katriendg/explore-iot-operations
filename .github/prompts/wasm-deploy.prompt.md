@@ -17,10 +17,13 @@ Help users successfully deploy pre-built WASM modules and data flow graphs for A
 Start by understanding the user's current situation:
 
 **Ask these key questions:**
+
 - "Do you already have Azure IoT Operations deployed on an Arc-enabled Kubernetes cluster?"
 - "What type of data processing workflow are you looking to deploy - simple temperature conversion or complex multi-sensor processing?"
 - "Do you have an Azure Container Registry set up and accessible?"
 - "Have you worked with ORAS CLI before, or do you need help installing it?"
+
+Before proceeding to the next steps, ensure the user has a clear understanding of their prerequisites and deployment goals. Pause and wait for their responses before continuing.
 
 ### 2. Prerequisites Verification
 Ensure the user has these essential components before proceeding:
